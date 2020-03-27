@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#mask.py
 #以下の環境で実行しています
 #Python 3.7.4
 #keras                     2.3.1
@@ -30,19 +31,20 @@ def detect_mask(img_path):
   pred=model.predict(img)
   output = f"マスクを装着している確率{pred[0][1]*100}%\n"
   if pred.argmax() == 1:
+ 
     output+="マスクを装着しています"
   else:
     output+="マスクを装着していません"
   return output
 
 
-os.chdir('./Testdata')
-path = os.getcwd()
-
-#path_x = join(path,sys.argv[1])
-path_x = join(path,"S__33914896.jpg")
-#outputに結果として表示して欲しい文字列を格納しています
-output=detect_mask(path_x)
-print(output)
-os.chdir('./..')
+def mask_test():
+    file = input("file name :")
+    os.chdir('./Testdata')
+    path = os.getcwd()
+    path_x = join(path,file)
+    #outputに結果として表示して欲しい文字列を格納しています
+    output=detect_mask(path_x)
+    print(output)
+    os.chdir('./..')
 
