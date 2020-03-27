@@ -12,3 +12,5 @@ path = os.getcwd()
 from keras.models import Sequential, model_from_json
 model = model_from_json(open(join(path, 'mask_NN.json'), 'r').read())
 model.load_weights(join(path,'mask_NN_weight.h5'))
+
+os.chdir('./..')
