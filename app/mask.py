@@ -45,4 +45,5 @@ def mask_test(file_name):
     output=detect_mask(path_x)
     print(output)
     os.chdir('./..')
+    return output
 
