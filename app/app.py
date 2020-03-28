@@ -1,6 +1,7 @@
 #サーバー側の処理を書くファイル
-import os
 
+#os
+import os
 #request フォームから送信した情報を扱うためのモジュール
 #redirect ページの移動
 #url_for　アドレス遷移
@@ -10,6 +11,10 @@ from werkzeug.utils import secure_filename
 #画像のダウンロード
 from flask import send_from_directory
 
+#ニューラルネットモデル
+import initializer
+#マスク判定を行う関数を定義
+import mask
 #初期設定
 UPLOAD_FOLDER='./Testdata'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'gif'])
@@ -53,19 +58,22 @@ def uploads_file():
             return redirect(request.url)
         #ファイルのチェック
         if file and allowed_file(file.filename):
-            #危険な文字を削除（サニタイズ処理）
-            filename = secure_filename(file.filename)
-            #ファイルの保存
+            #ファイル名の定義
+            filename = file.filename 
+            #ファイルの保存(./Testdata/ファイル名)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             #アップロード後のページに転送
-            return redirect(url_for('uploaded_file', filename=filename))
+            return redirect(url_for('result', filename=filename))
     
     return render_template('detection.html')
 
 @app.route('/detection/<filename>')
-#ファイルを表示する
-def uploaded_file(filename):
-    return render_template('result.html', filename=filename)
+def result(filename):
+    #ニューラルネットにかける
+    output_str = mask.mask_test(filename)
+    #result.htmlに結果を表示
+    return render_template('result.html')
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
+
