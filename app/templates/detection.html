@@ -29,17 +29,38 @@
             <div class="intro-text">
                 <h1>早速持っている写真をウェブサイトに投稿してみましょう！</h1>
             </div>
-            <div class="add-picture">
+
+            <!-- Todo: CSSの装飾 -->
+            <div>
+                <form method ="POST" enctype = multipart/form-data>
+                <label>
                 <div class="ui animated button button2" tabindex="0">
                     <div class="visible content content2">
                         <div class="backgroundbutton">
-                            <h2 class="masktext">マスク検定をしてみる</h2>
+                            <h2 class="masktext">マスク画像を選択</h2>
                         </div>
                     </div>
                     <div class="hidden content">
                         <i class="camera icon"></i>
+                        <input type=file name=file>
                     </div>
                 </div>
+                </label>
+
+                <label>
+                <div class="ui animated button button2" tabindex="0">
+                    <div class="visible content content2">
+                        <div class="backgroundbutton">
+                            <h2 class="masktext">マスク判定をはじめる</h2>
+                        </div>
+                    </div>
+                    <div class="hidden content">
+                        <i class="right arrow icon"></i>
+                        <input type=submit value=Upload>
+                    </div>
+                </div>
+                </label>               
+                </form>
             </div>
 
         </div>

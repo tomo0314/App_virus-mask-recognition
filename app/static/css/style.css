@@ -82,18 +82,20 @@ body {
     margin-top: 40px;
     position: relative;
     margin-left: 40px;
-
-
 }
+
 
 .visible.content.content1 {
     padding-right: 45px;
     padding-left: 45px;
+    position: relative;
 }
 
 .ui.animated.button.button2 {
     margin-left: 40px;
     padding-right: 40px;
+    position: relative;
+
 }
 
 .learnmore {
@@ -189,4 +191,12 @@ b {
     left: 50px;
     max-width: 80%;
 
+}
+
+input {
+    display: none;
+} 
+
+#filesend {
+    display: none;  
 }
