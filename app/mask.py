@@ -20,30 +20,32 @@ classes_dict = {"no-mask_data":0,
 classes = ["no-mask", "mask"]
 img_width, img_height = 128, 128
 
+
 def detect_mask(img_path):
-  model = initializer.model
-  img=Image.open(img_path)
-  img = img.resize((img_width, img_height))
-  img = np.array(img)
-  #検査対象画像の出力
-  #plt.imshow(img)
-  img=img.reshape([1,128,128,3])
-  pred=model.predict(img)
-  output = f"マスクを装着している確率{pred[0][1]*100}%\n"
-  if pred.argmax() == 1:
-    output+="マスクを装着しています"
-  else:
-    output+="マスクを装着していません"
-  return output
+  with initializer.graph.as_default():
+    model = initializer.model
+    img=Image.open(img_path)
+    img = img.resize((img_width, img_height))
+    img = np.array(img)
+    #検査対象画像の出力
+    #plt.imshow(img)
+    img=img.reshape([1,128,128,3])
+    pred=model.predict(img)
+    output = f"マスクを装着している確率{pred[0][1]*100}%\n"
+    if pred.argmax() == 1:
+
+      output+="マスクを装着しています"
+    else:
+      output+="マスクを装着していません"
+    return output
 
 
 def mask_test(file_name):
     os.chdir('./Testdata')
     path = os.getcwd()
     path_x = join(path,file_name)
+    print(path_x)
     #outputに結果として表示して欲しい文字列を格納しています
     output=detect_mask(path_x)
     print(output)
     os.chdir('./..')
-    return output
-
