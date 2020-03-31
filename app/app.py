@@ -11,10 +11,11 @@ from werkzeug.utils import secure_filename
 #画像のダウンロード
 from flask import send_from_directory
 
-#ニューラルネットモデル
+#ニューラルネットモデルのファイル
 import initializer
-#マスク判定を行う関数を定義
+#ニューラルネット処理を行う関数のファイル
 import mask
+
 #初期設定
 UPLOAD_FOLDER='./Testdata'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'gif'])
@@ -59,7 +60,7 @@ def uploads_file():
         #ファイルのチェック
         if file and allowed_file(file.filename):
             #ファイル名の定義
-            filename = file.filename 
+            filename = str(file.filename) 
             #ファイルの保存(./Testdata/ファイル名)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             #アップロード後のページに転送
@@ -68,12 +69,11 @@ def uploads_file():
     return render_template('detection.html')
 
 @app.route('/detection/<filename>')
-def result(filename):
+def result(filename):    
     #ニューラルネットにかける
     output_str = mask.mask_test(filename)
     #result.htmlに結果を表示
-    return render_template('result.html')
+    return render_template('result.html', output_str=output_str, filename=filename)
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
-
