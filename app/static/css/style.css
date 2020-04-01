@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    transition: all 1s;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background-color: #63a4ff;
+    background-image: linear-gradient(315deg, #63a4ff 0%, #83eaf1 74%);
+}
+
+.ui.stackable.menu {
+    background-color: #36096d;
+    background-image: linear-gradient(315deg, #36096d 0%, #37d5d6 74%);
+
+}
+
+.big-circle {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+    opacity: 0.3;
+    height: 80%;
+
+}
+
+.mid-circle {
+    position: absolute;
+    top: 30%;
+    right: 30%;
+    height: 70%;
+    opacity: 0.5;
+}
+
+.small-circle {
+    position: absolute;
+    bottom: 0%;
+    left: 15%;
+    opacity: 0.8;
+}
+
+.item img {
+    border-radius: 13px;
+}
+
+.item {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.banner {
+    width: 80%;
+    height: 70%;
+    top: 25%;
+    left: 60px;
+    position: absolute;
+    color: black;
+
+}
+
+.text h1 {
+    font-size: 43px;
+    width: 80%;
+    position: relative;
+    margin-left: 40px;
+
+}
+
+.text p {
+    width: 80%;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 40px;
+}
+
+.ui.animated.button {
+    margin-top: 40px;
+    position: relative;
+    margin-left: 40px;
+}
+
+
+.visible.content.content1 {
+    padding-right: 45px;
+    padding-left: 45px;
+    position: relative;
+}
+
+.ui.animated.button.button2 {
+    margin-left: 40px;
+    padding-right: 40px;
+    position: relative;
+
+}
+
+.learnmore {
+    color: black;
+}
+
+.masktext {
+    color: black;
+}
+
+.ui.animated.button:active,
+.ui.animated.button.button2:active {
+    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+    transform: translateY(2px);
+}
+
+.bodyfadeout {
+    opacity: 0;
+}
+
+.animation {
+    transition: all 1s ease-in;
+    margin-left: 110vw;
+}
+
+
+
+/*usageページのcss*/
+.container2 {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);
+
+}
+
+.content-usage {
+    width: 80%;
+    height: 70%;
+    position: absolute;
+    left: 120px;
+    top: 15%;
+}
+
+.top {
+    display: inline-flex;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    width: 100%;
+}
+
+.top-inner {
+    width: 80%;
+    height: 80px;
+    border: 6px solid transparent;
+    border-radius: 10px;
+    background-image: linear-gradient(#42455a, #42455a), radial-gradient(circle at top left, #fd00da, #19d7f8);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+
+}
+
+
+.inner {
+    max-width: 350px;
+    margin: 30px 30px;
+    position: relative;
+    left: 120px;
+    white-space: nowrap;
+}
+
+b {
+    color: white;
+    font-size: 30px;
+}
+
+
+
+
+
+
+/*detectionのページ*/
+.intro-text h1 {
+    font-size: 40px;
+    background: -webkit-linear-gradient(black, #494964, #6f6f89, black);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.detection-content {
+    position: absolute;
+    top: 30%;
+    left: 50px;
+    max-width: 80%;
+
+}
+
+input {
+    display: none;
+} 
+
+#filesend {
+    display: none;  
+}
