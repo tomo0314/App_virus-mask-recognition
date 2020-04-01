@@ -17,7 +17,7 @@ import initializer
 import mask
 
 #初期設定
-UPLOAD_FOLDER='./Testdata'
+UPLOAD_FOLDER="./testData"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'gif'])
 
 app = Flask(__name__)
@@ -61,8 +61,10 @@ def uploads_file():
         if file and allowed_file(file.filename):
             #ファイル名の定義
             filename = str(file.filename) 
+            #file_pathの指定
+            file_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
             #ファイルの保存(./Testdata/ファイル名)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file.save(file_path)
             #アップロード後のページに転送
             return redirect(url_for('result', filename=filename))
     
