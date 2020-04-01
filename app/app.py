@@ -17,7 +17,7 @@ import initializer
 import mask
 
 #初期設定
-UPLOAD_FOLDER="./testData"
+UPLOAD_FOLDER="./Testdata"
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'gif'])
 
 app = Flask(__name__)
