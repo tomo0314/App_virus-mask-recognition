@@ -42,8 +42,7 @@ def detect_mask(img_path):
 
 
 def mask_test(file_name):
-    os.chdir('./Testdata')
-    path = os.getcwd()
+    path = join((os.getcwd()), "testData")
     path_x = join(path,file_name)
     #outputに結果として表示して欲しい文字列を格納しています
     output=detect_mask(path_x)
